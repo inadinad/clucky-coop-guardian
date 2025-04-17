@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+# Clucky Coop Guardian: ESP32 Chicken Feeder Control App
 
-## Project info
+A mobile application for controlling an ESP32-based automatic chicken feeder system. This app allows you to monitor and control your chicken feeder from your mobile device.
 
-**URL**: https://lovable.dev/projects/5ee578e4-a434-4821-9746-3685b616bc33
+## Features
 
-## How can I edit this code?
+- **PIN Security**: 4-digit PIN protection for app access
+- **Feeding Schedule**: Set and manage automatic feeding times
+- **Real-time Temperature Monitoring**: View current temperature and historical data
+- **Feed Level Monitoring**: Track feed storage levels with low-level notifications
+- **Manual Feeding**: Trigger feeding on demand
+- **ESP32 Connectivity**: Connect to your ESP32 device
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/5ee578e4-a434-4821-9746-3685b616bc33) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- React + TypeScript
+- Vite for bundling
+- Capacitor for mobile app capabilities
+- Tailwind CSS for styling
+- shadcn/ui component library
+- Recharts for data visualization
 
-## How can I deploy this project?
+## Mobile App Build Instructions
 
-Simply open [Lovable](https://lovable.dev/projects/5ee578e4-a434-4821-9746-3685b616bc33) and click on Share -> Publish.
+To build the mobile app as an executable (.apk for Android or .ipa for iOS):
 
-## Can I connect a custom domain to my Lovable project?
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Build the web application:
+   ```
+   npm run build
+   ```
+4. Add native platforms:
+   ```
+   npx cap add android
+   npx cap add ios  # If on macOS
+   ```
+5. Sync the built web code with the native projects:
+   ```
+   npx cap sync
+   ```
+6. Open the native IDE to build:
+   ```
+   npx cap open android  # Opens Android Studio
+   npx cap open ios      # Opens Xcode (macOS only)
+   ```
+7. Build the app from the native IDE
 
-Yes, you can!
+## ESP32 Integration
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This app is designed to connect to an ESP32 microcontroller that controls the chicken feeder hardware. The ESP32 should be programmed to:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Control the feeding mechanism
+2. Monitor temperature via a temperature sensor
+3. Monitor feed levels using appropriate sensors
+4. Accept commands and send data over WiFi or Bluetooth
+
+## PIN Security
+
+The default PIN is set to `1234`. In a production app, this would be stored securely and could be changed by the user.
+
+## Project Structure
+
+- `/src/components`: UI components
+- `/src/pages`: Screen pages
+- `/src/lib`: Utility functions and ESP32 connection simulation
+- `/capacitor.config.ts`: Capacitor configuration
+
+## Build from Lovable
+
+This project was created with [Lovable](https://lovable.dev/projects/5ee578e4-a434-4821-9746-3685b616bc33).

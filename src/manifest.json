@@ -1,0 +1,17 @@
+
+{
+  "name": "Clucky Coop Guardian",
+  "short_name": "Coop Guardian",
+  "description": "ESP32 Chicken Feeder Control App",
+  "theme_color": "#8B4513",
+  "background_color": "#FFF8E7",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
